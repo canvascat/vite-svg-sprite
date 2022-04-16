@@ -7,5 +7,5 @@ export default defineBuildConfig({
   rollup: {
     emitCJS: true,
   },
-  externals: ['fast-glob'],
+  externals: ['fast-glob', 'vite'],
 })

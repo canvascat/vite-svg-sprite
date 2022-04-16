@@ -11,7 +11,7 @@ export default defineConfig({
       {
         iconDirs: {
           cwd: resolve(process.cwd(), 'src/assets/icons'),
-          ignore: 'color',
+          ignore: ['color'],
         },
         symbolId: '[dir]-[name]',
         svgoOptions: {
