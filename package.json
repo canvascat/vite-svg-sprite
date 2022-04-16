@@ -14,7 +14,12 @@
     "type": "git",
     "url": "git+https://github.com/canvascat/vite-svg-sprite.git"
   },
-  "keywords": [],
+  "keywords": [
+    "vite",
+    "svg",
+    "sprite",
+    "plugin"
+  ],
   "author": "",
   "license": "MIT",
   "bugs": {

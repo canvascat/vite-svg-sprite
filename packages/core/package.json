@@ -22,9 +22,25 @@
     "prepublishOnly": "npm run build",
     "prepack": "pnpm unbuild"
   },
-  "keywords": [],
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/canvascat/vite-svg-sprite.git"
+  },
+  "keywords": [
+    "vite",
+    "svg",
+    "sprite",
+    "plugin"
+  ],
   "author": "",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/canvascat/vite-svg-sprite/issues"
+  },
+  "homepage": "https://github.com/canvascat/vite-svg-sprite#readme",
   "dependencies": {
     "cors": "^2.8.5",
     "etag": "^1.8.1",
