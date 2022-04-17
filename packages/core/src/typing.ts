@@ -1,7 +1,7 @@
 import type FastGlob from 'fast-glob'
 import type { OptimizeOptions } from 'svgo'
 
-type OrArray<T> = T | T[]
+export type OrArray<T> = T | T[]
 
 export interface ViteSvgSpriteOptions {
   /**

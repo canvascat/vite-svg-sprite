@@ -42,15 +42,16 @@
   },
   "homepage": "https://github.com/canvascat/vite-svg-sprite#readme",
   "dependencies": {
+    "@types/svgo": "^2.6.3",
     "cors": "^2.8.5",
     "etag": "^1.8.1",
+    "fast-glob": "^3.2.11",
     "svg-baker": "^1.7.0",
     "svgo": "^2.8.0"
   },
   "devDependencies": {
     "@types/cors": "^2.8.12",
     "@types/etag": "^1.8.1",
-    "@types/svgo": "^2.6.3",
     "vite": "^2.9.2"
   }
 }

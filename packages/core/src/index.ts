@@ -4,6 +4,7 @@ import type {
   ViteSvgSpriteOptions,
   FileStats,
   ModuleCodeOptions,
+  OrArray,
 } from './typing'
 import fg from 'fast-glob'
 import type FastGlob from 'fast-glob'
@@ -25,7 +26,7 @@ import {
 export * from './typing'
 
 function normalizeOptions(
-  options: ViteSvgSpriteOptions | ViteSvgSpriteOptions[],
+  options: OrArray<ViteSvgSpriteOptions>,
 ): ModuleCodeOptions[] {
   if (!Array.isArray(options)) options = [options]
 

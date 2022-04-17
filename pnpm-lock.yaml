@@ -38,18 +38,20 @@ importers:
       '@types/svgo': ^2.6.3
       cors: ^2.8.5
       etag: ^1.8.1
+      fast-glob: ^3.2.11
       svg-baker: ^1.7.0
       svgo: ^2.8.0
       vite: ^2.9.2
     dependencies:
+      '@types/svgo': 2.6.3
       cors: 2.8.5
       etag: 1.8.1
+      fast-glob: 3.2.11
       svg-baker: 1.7.0
       svgo: 2.8.0
     devDependencies:
       '@types/cors': 2.8.12
       '@types/etag': 1.8.1
-      '@types/svgo': 2.6.3
       vite: 2.9.5
 
   packages/playground:
@@ -662,7 +664,6 @@ packages:
     dependencies:
       '@nodelib/fs.stat': 2.0.5
       run-parallel: 1.2.0
-    dev: true
 
   /@nodelib/fs.stat/2.0.5:
     resolution:
@@ -670,7 +671,6 @@ packages:
         integrity: sha512-RkhPPp2zrqDAQA/2jNhnztcPAlv64XdhIp7a7454A5ovI7Bukxgt7MX7udwAu3zg1DcpPU0rz3VV1SeaqvY4+A==,
       }
     engines: { node: '>= 8' }
-    dev: true
 
   /@nodelib/fs.walk/1.2.8:
     resolution:
@@ -681,7 +681,6 @@ packages:
     dependencies:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.13.0
-    dev: true
 
   /@rollup/plugin-alias/3.1.9_rollup@2.70.2:
     resolution:
@@ -869,7 +868,6 @@ packages:
       {
         integrity: sha512-aveCYRQbgTH9Pssp1voEP7HiuWlD2jW2BO56w+bVrJn04i61yh6mRfoKO6hEYQD9vF+W8Chkwc6j1M36uPkx4g==,
       }
-    dev: true
 
   /@types/normalize-package-data/2.4.1:
     resolution:
@@ -901,7 +899,7 @@ packages:
       }
     dependencies:
       '@types/node': 17.0.24
-    dev: true
+    dev: false
 
   /@typescript-eslint/eslint-plugin/5.19.0_f34adc8488d2e4f014fe61432d70cbf2:
     resolution:
@@ -1591,7 +1589,6 @@ packages:
     engines: { node: '>=8' }
     dependencies:
       fill-range: 7.0.1
-    dev: true
 
   /browserslist/4.20.2:
     resolution:
@@ -3279,7 +3276,6 @@ packages:
       glob-parent: 5.1.2
       merge2: 1.4.1
       micromatch: 4.0.5
-    dev: true
 
   /fast-json-stable-stringify/2.1.0:
     resolution:
@@ -3299,7 +3295,6 @@ packages:
       }
     dependencies:
       reusify: 1.0.4
-    dev: true
 
   /figures/2.0.0:
     resolution: { integrity: sha1-OrGi0qYsi/tDGgyUy3l6L84nyWI= }
@@ -3336,7 +3331,6 @@ packages:
     engines: { node: '>=8' }
     dependencies:
       to-regex-range: 5.0.1
-    dev: true
 
   /find-node-modules/2.1.3:
     resolution:
@@ -3533,7 +3527,6 @@ packages:
     engines: { node: '>= 6' }
     dependencies:
       is-glob: 4.0.3
-    dev: true
 
   /glob-parent/6.0.2:
     resolution:
@@ -4016,7 +4009,6 @@ packages:
   /is-extglob/2.1.1:
     resolution: { integrity: sha1-qIwCU1eR8C7TfHahueqXc8gz+MI= }
     engines: { node: '>=0.10.0' }
-    dev: true
 
   /is-fullwidth-code-point/2.0.0:
     resolution: { integrity: sha1-o7MKXE8ZkYMWeqq5O+764937ZU8= }
@@ -4047,7 +4039,6 @@ packages:
     engines: { node: '>=0.10.0' }
     dependencies:
       is-extglob: 2.1.1
-    dev: true
 
   /is-module/1.0.0:
     resolution: { integrity: sha1-Mlj7afeMFNW4FdZkM2tM/7ZEFZE= }
@@ -4066,7 +4057,6 @@ packages:
         integrity: sha512-41Cifkg6e8TylSpdtTpeLVMqvSBEVzTttHvERD741+pnZ8ANv0004MRL43QKPDlK9cGvNp6NZWZUBlbGXYxxng==,
       }
     engines: { node: '>=0.12.0' }
-    dev: true
 
   /is-obj/2.0.0:
     resolution:
@@ -4584,7 +4574,6 @@ packages:
         integrity: sha512-8q7VEgMJW4J8tcfVPy8g09NcQwZdbwFEqhe/WZkoIzjn/3TGDwtOCYtXGxA3O8tPzpczCCDgv+P2P5y00ZJOOg==,
       }
     engines: { node: '>= 8' }
-    dev: true
 
   /micromatch/3.1.0:
     resolution:
@@ -4617,7 +4606,6 @@ packages:
     dependencies:
       braces: 3.0.2
       picomatch: 2.3.1
-    dev: true
 
   /mimic-fn/1.2.0:
     resolution:
@@ -5074,7 +5062,6 @@ packages:
         integrity: sha512-JU3teHTNjmE2VCGFzuY8EXzCDVwEqB2a8fsIvwaStHhAWJEeVd1o1QD80CU6+ZdEXXSLbSsuLwJjkCBWqRQUVA==,
       }
     engines: { node: '>=8.6' }
-    dev: true
 
   /pidtree/0.5.0:
     resolution:
@@ -5367,7 +5354,6 @@ packages:
       {
         integrity: sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==,
       }
-    dev: true
 
   /quick-lru/4.0.1:
     resolution:
@@ -5552,7 +5538,6 @@ packages:
         integrity: sha512-U9nH88a3fc/ekCF1l0/UP1IosiuIjyTh7hBvXVMHYgVcfGvt897Xguj2UOLDeI5BG2m7/uwyaLVT6fbtCwTyzw==,
       }
     engines: { iojs: '>=1.0.0', node: '>=0.10.0' }
-    dev: true
 
   /rfdc/1.3.0:
     resolution:
@@ -5635,7 +5620,6 @@ packages:
       }
     dependencies:
       queue-microtask: 1.2.3
-    dev: true
 
   /rxjs/6.6.7:
     resolution:
@@ -6252,7 +6236,6 @@ packages:
     engines: { node: '>=8.0' }
     dependencies:
       is-number: 7.0.0
-    dev: true
 
   /to-regex/3.0.2:
     resolution:
