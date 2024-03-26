@@ -21,24 +21,119 @@
 ## Usage
 
 ```sh
-pnpm add vite-svg-sprite
+npm add vite-svg-sprite
 ```
 
 ```ts
 // vite.config.ts
-import { createSvgSpritePlugin } from 'vite-svg-sprite'
+import { createSVGSpritePlugin } from "vite-svg-sprite";
 
 // @see https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
     // ...other plugins
-    createSvgSpritePlugin(/* options */),
+    createSVGSpritePlugin(/* options */),
   ],
-})
+});
 ```
 
-or [@see](https://github.com/canvascat/vite-svg-sprite/blob/dev/packages/playground/vite.config.ts)
+webpack to vite
+
+```js
+const fs = require("fs");
+const path = require("path");
+
+const appDirectory = fs.realpathSync(process.cwd());
+const resolveApp = (relativePath) => path.resolve(appDirectory, relativePath);
+
+/** @type {import("webpack").Configuration} */
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.svg$/,
+        include: [resolveApp("src/assets/icon/svg")],
+        exclude: [resolveApp("src/assets/icon/svg/colored")],
+        use: [
+          { loader: "svg-sprite-loader", options: { symbolId: "[name]" } },
+          {
+            loader: "svgo-loader",
+            options: {
+              plugins: [
+                { name: "removeAttrs", params: { attrs: "fill" } },
+                { name: "removeTitle" },
+              ],
+            },
+          },
+        ],
+      },
+      {
+        test: /\.svg$/,
+        include: [resolveApp("src/assets/icon/svg/colored")],
+        use: [
+          { loader: "svg-sprite-loader", options: { symbolId: "[name]" } },
+          {
+            loader: "svgo-loader",
+            options: { plugins: [{ name: "removeTitle" }] },
+          },
+        ],
+      },
+    ],
+  },
+};
+```
+
+```ts
+import svgo from "svgo";
+import { defineConfig } from "vite";
+import { createSVGSpritePlugin } from "vite-svg-sprite";
+
+// https://vitejs.dev/config/
+export default defineConfig({
+  plugins: [
+    createSVGSpritePlugin({
+      include: resolveApp("src/assets/icon/svg/**/*.svg"),
+      exclude: resolveApp("src/assets/icon/svg/colored/**/*.svg"),
+      optimize: (content) =>
+        svgo.optimize(content, {
+          plugins: [
+            { name: "removeAttrs", params: { attrs: "fill" } },
+            { name: "removeTitle" },
+          ],
+        }).data,
+    }),
+    createSVGSpritePlugin({
+      include: resolveApp("src/assets/icon/svg/colored/**/*.svg"),
+      optimize: (content) =>
+        svgo.optimize(content, {
+          plugins: [{ name: "removeTitle" }],
+        }).data,
+    }),
+  ],
+});
+```
+
+```ts
+const requireAll = (context: __WebpackModuleApi.RequireContext) =>
+  context.keys().map(context);
+const iconContext = require.context("./assets/icon", true, /\.svg$/);
+requireAll(iconContext);
+
+import.meta.glob("./assets/icon/**/*.svg", { eager: true });
+```
+
+or [@see](https://github.com/canvascat/vite-svg-sprite/blob/main/packages/playground/vite.config.ts)
 
 ## Options
 
-- [@see](https://github.com/canvascat/vite-svg-sprite/blob/dev/packages/core/src/typing.ts)
+```ts
+interface SVGSpritePluginOptions {
+  // **/*.svg?symbol
+  include?: FilterPattern;
+  exclude?: FilterPattern;
+  symbolId?:
+    | string
+    | ((content: string, id: string) => string | Promise<string>);
+  optimize?: (content: string, id: string) => string | Promise<string>;
+}
+```

@@ -1,5 +1,0 @@
-export const SVG_SPRITE_REGISTER_NAME = 'virtual:svg-sprite-register'
-export const SVG_ICONS_CLIENT = 'virtual:svg-icons-names'
-export const SVG_DOM_ID = '__SVG_SPRITE_NODE__'
-export const XMLNS = 'http://www.w3.org/2000/svg'
-export const XMLNS_LINK = 'http://www.w3.org/1999/xlink'

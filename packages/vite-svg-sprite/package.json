@@ -1,0 +1,63 @@
+{
+  "name": "vite-svg-sprite",
+  "version": "2.0.0",
+  "description": "",
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.cjs"
+    },
+    "./runtime/browser-sprite": {
+      "import": "./dist/runtime/browser-sprite.mjs",
+      "types": "./dist/runtime/browser-sprite.d.ts",
+      "require": "./dist/runtime/browser-sprite.cjs"
+    },
+    "./client": {
+      "types": "./runtime/client.d.ts"
+    }
+  },
+  "files": [
+    "dist",
+    "runtime/client.d.ts"
+  ],
+  "scripts": {
+    "dev": "npx unbuild --stub",
+    "build": "npx unbuild",
+    "prepublishOnly": "npm build",
+    "prepack": "npx unbuild"
+  },
+  "engines": {
+    "node": "^18.0.0 || >=20.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/canvascat/vite-svg-sprite.git"
+  },
+  "keywords": [
+    "vite",
+    "svg",
+    "sprite",
+    "plugin"
+  ],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/canvascat/vite-svg-sprite/issues"
+  },
+  "homepage": "https://github.com/canvascat/vite-svg-sprite#readme",
+  "dependencies": {
+    "@rollup/pluginutils": "^5.1.0",
+    "@types/svg-baker-runtime": "^1.4.3",
+    "svg-baker-runtime": "^1.3.5",
+    "svg-mixer": "^2.3.14"
+  },
+  "devDependencies": {
+    "typescript": "^5.2.2",
+    "unbuild": "^2.0.0",
+    "vite": "^5.2.0"
+  }
+}
